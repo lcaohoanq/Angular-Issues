@@ -11,6 +11,33 @@ export class AppointmentListComponent {
   newAppointmentTitle: string = ""
   newAppointmentDate: Date = new Date()
 
-  appointment: Appointment[] = []
+  appointments: Appointment[] = []
+  
+  // id = 0;
 
+  addAppointment(){
+
+    if(this.newAppointmentTitle.trim().length && this.newAppointmentDate){
+      let newAppointment: Appointment = {
+        id: Date.now(),
+        title: this.newAppointmentTitle,
+        date: this.newAppointmentDate
+      }
+
+      this.appointments.push(newAppointment)
+    }
+
+    //reset the form visualization
+    this.newAppointmentTitle = ""
+    this.newAppointmentDate = new Date()
+    
+    // this.appointments.push({
+    //   "id": this.id++,
+    //   "title": this.newAppointmentTitle,
+    //   "date": this.newAppointmentDate
+    // })
+  
+    alert(this.appointments.length)
+
+  }
 }
