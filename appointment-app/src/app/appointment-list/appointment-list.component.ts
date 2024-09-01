@@ -36,8 +36,12 @@ export class AppointmentListComponent {
     //   "title": this.newAppointmentTitle,
     //   "date": this.newAppointmentDate
     // })
-  
-    alert(this.appointments.length)
 
+    localStorage.setItem("apls", JSON.stringify(this.appointments));
+
+  }
+
+  deleteAppointment(index: number){
+    this.appointments.splice(index, 1)
   }
 }
