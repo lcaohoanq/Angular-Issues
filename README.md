@@ -1,0 +1,5 @@
+- ng new project
+- ng serve -o
+- component (selector, templateUrl, styleUrls)
+- one way databinding
+- 
