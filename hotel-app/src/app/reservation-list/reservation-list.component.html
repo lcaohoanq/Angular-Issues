@@ -3,25 +3,27 @@
 <table *ngIf="reservations.length; else noReservation" border="1">
     <thead>
         <tr>
-            <td>id</td>
+            <!-- <td>id</td> -->
             <td>Check in date</td>
             <td>Check out date</td>
             <td>Guest email</td>
             <td>Guest name</td>
             <td>Room number</td>
+            <td>Action</td>
         </tr>
     </thead>
     <tbody 
     
     *ngFor="let res of reservations; index as i">
         <tr>
-            <td>{{res.id}}</td>
+            <!-- <td>{{res.id}}</td> -->
             <td>{{res.checkInDate}}</td>
             <td>{{res.checkOutDate}}</td>
             <td>{{res.guestEmail}}</td>
             <td>{{res.guestName}}</td>
             <td>{{res.roomNumber}}</td>
             <button (click)="deleteReservation(res.id)">Delete</button>
+            <button [routerLink]="['/edit', res.id]">Edit</button>
         </tr>
     </tbody>
 
