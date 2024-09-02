@@ -4,20 +4,22 @@ import { ReservationFormComponent } from '../reservation-form/reservation-form.c
 import { ReservationListComponent } from '../reservation-list/reservation-list.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RouterModule } from '@angular/router';
+import { HomeModule } from '../home/home.module';
 
 
 
 @NgModule({
   declarations: [
     ReservationFormComponent,
-    ReservationListComponent
+    ReservationListComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule, //validate the form inside the component (Typescript class)
     //Template-Driven Form Validation (HTML)
-    RouterModule
+    RouterModule,
+    HomeModule
   ]
 })
 export class ReservationModule { }
