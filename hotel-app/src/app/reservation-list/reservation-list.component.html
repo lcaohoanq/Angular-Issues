@@ -1,7 +1,7 @@
-<table border="1">
+<h1>Reservation List</h1>
 
+<table *ngIf="reservations.length; else noReservation" border="1">
     <thead>
-
         <tr>
             <td>id</td>
             <td>Check in date</td>
@@ -10,10 +10,10 @@
             <td>Guest name</td>
             <td>Room number</td>
         </tr>
-
     </thead>
-
-    <tbody *ngFor="let res of reservations; index as i">
+    <tbody 
+    
+    *ngFor="let res of reservations; index as i">
         <tr>
             <td>{{res.id}}</td>
             <td>{{res.checkInDate}}</td>
@@ -21,8 +21,12 @@
             <td>{{res.guestEmail}}</td>
             <td>{{res.guestName}}</td>
             <td>{{res.roomNumber}}</td>
+            <button (click)="deleteReservation(res.id)">Delete</button>
         </tr>
-
     </tbody>
 
 </table>
+
+<ng-template #noReservation>
+<p>No reservation available</p>
+</ng-template>
