@@ -1,32 +1,47 @@
-<div>
-    <input [(ngModel)]="newAppointmentTitle"
-     placeholder="Appointment description" />
-    <input [(ngModel)]="newAppointmentDate" type="date" placeholder="Appointment date" />
-    <!-- Read the documentation about Event -->
-    <button class="btn btn-primary" (click)="addAppointment()">Add</button>
+<div class="container">
+
+    <div class="row">
+
+        <div>
+            <h1 class="text text-center ">Create new appointment</h1>
+        </div>
+
+        <div class="mt-5 d-flex justify-content-center">
+            <input [(ngModel)]="newAppointmentTitle" placeholder="Appointment description" />
+            <input [(ngModel)]="newAppointmentDate" type="date" placeholder="Appointment date" />
+            <!-- Read the documentation about Event -->
+            <button class="btn btn-primary w-100" (click)="addAppointment()">Add</button>
+        </div>
+
+    </div>
+
+
+    <div class="row mt-5">
+        <div>
+            <h1 class="text text-center ">Appointment</h1>
+        </div>
+
+        <table class="table" border="1">
+            <thead>
+                <tr>
+                    <td scope="col">Id</td>
+                    <td scope="col">Title</td>
+                    <td scope="col">Date</td>
+                    <td scope="col">Action</td>
+                </tr>
+            </thead>
+            <tbody *ngFor="let appointment of appointments; index as i">
+                <tr>
+                    <td scope="row"> {{appointment.id}} </td>
+                    <td scope="row">{{appointment.title}}</td>
+                    <td scope="row"> {{appointment.date | date: 'dd.MM.yyyy'}}</td>
+                    <td scope="row">
+                        <button class="btn btn-danger" (click)="deleteAppointment(i)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-
-
-<table class="table" border="1">
-    <thead>
-        <tr>
-            <td scope="col">Id</td>
-            <td scope="col">Title</td>
-            <td scope="col">Date</td>
-            <td scope="col">Action</td>
-        </tr>
-    </thead>
-    <tbody *ngFor="let appointment of appointments; index as i">
-        <tr>
-            <td scope="row"> {{appointment.id}} </td>
-            <td scope="row">{{appointment.title}}</td>
-            <td scope="row"> {{appointment.date | date: 'dd.MM.yyyy'}}</td>
-            <td scope="row">
-                <button class="btn btn-danger" 
-                        (click)="deleteAppointment(i)">
-                    Delete
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
